@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Relatório de Campanha · UP Markup · NI Negócios · Trilha</title>
+<link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
+<style>
+/* ───── POLYSANS · TRILHA ───── */
+@font-face{font-family:'PolySans Bulky Wide';font-style:normal;font-weight:800;font-display:swap;
+  src:url('https://static.wixstatic.com/ufonts/44f42e_6715ad510f8f4f6fa30541c6df9a03e7/woff2/file.woff2') format('woff2')}
+@font-face{font-family:'PolySans Bulky';font-style:normal;font-weight:700;font-display:swap;
+  src:url('https://static.wixstatic.com/ufonts/44f42e_808656c3944d427abd0adafe7597d810/woff2/file.woff2') format('woff2')}
+@font-face{font-family:'PolySans Median';font-style:normal;font-weight:500;font-display:swap;
+  src:url('https://static.wixstatic.com/ufonts/fb1953_158350b0513342cda7fc854a95b4e172/woff2/file.woff2') format('woff2')}
+@font-face{font-family:'PolySans Slim';font-style:normal;font-weight:400;font-display:swap;
+  src:url('https://static.wixstatic.com/ufonts/fb1953_036c275183ca45bca9804e4e72fcf90f/woff2/file.woff2') format('woff2')}
+@font-face{font-family:'PolySans Neutral';font-style:italic;font-weight:400;font-display:swap;
+  src:url('https://static.wixstatic.com/ufonts/44f42e_d592374634674997a361dab4866716a2/woff2/file.woff2') format('woff2')}
+:root{
+  --bg:#e9e8e4;--bg-dark:#1d1d1b;--surface:#fff;--surface-soft:#f3f2ee;
+  --border:#d8d6cf;--border-soft:#dfddd5;
+  --accent:#ee4c20;--accent-dark:#c43815;--accent-light:#fde0d3;--accent-soft:#fdeee6;
+  --text:#212121;--text-soft:#454c47;--muted:#717c72;--light:#9eafaa;
+  --green-deep:#333A32;--green-soft:#e2e9e5;
+  --danger:#C13A1F;--danger-soft:#FAEBE7;
+  --info:#2b5672;--info-soft:#E6EEF5;
+  --r:20px;--r-sm:14px;--r-xs:9px;
+  --shadow-sm:0 1px 3px rgba(29,29,27,.05),0 1px 2px rgba(29,29,27,.06);
+  --shadow:0 4px 16px rgba(29,29,27,.06),0 1px 4px rgba(29,29,27,.04);
+  --shadow-md:0 12px 40px rgba(29,29,27,.08),0 2px 8px rgba(29,29,27,.04);
+  --display:'PolySans Bulky Wide','PolySans Bulky',system-ui,sans-serif;
+  --heading:'PolySans Bulky','PolySans Median',system-ui,sans-serif;
+  --sans:'PolySans Slim','PolySans Median',system-ui,sans-serif;
+  --medium:'PolySans Median',system-ui,sans-serif;
+  --italic:'PolySans Neutral','PolySans Slim',system-ui,sans-serif;
+  --max:1120px;--gutter:clamp(20px,4vw,40px);
+  --f1:#FFD4B8;--f2:#FFB389;--f3:#FF8B5A;--f4:#F26A33;--f5:#ee4c20;--f6:#9c2e10;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.5;
+  background-image:radial-gradient(at 92% 4%,rgba(238,76,32,.05) 0,transparent 45%),
+    radial-gradient(at 6% 96%,rgba(201,169,97,.06) 0,transparent 45%);}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+  display:inline-flex;align-items:center;gap:9px}
+.eyebrow::before{content:'';width:16px;height:1px;background:currentColor}
+.eyebrow.muted{color:var(--muted)}
+.eyebrow.muted::before{background:var(--border)}
+
+/* ───── HEADER ───── */
+header{padding:clamp(40px,7vw,72px) 0 clamp(28px,4vw,40px)}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:clamp(28px,5vw,48px)}
+.brand .mark{width:40px;height:40px;border-radius:11px;background:var(--bg-dark);
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.brand .mark span{display:block;width:15px;height:15px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 0 4px rgba(238,76,32,.18)}
+.brand .lock{display:flex;flex-direction:column;line-height:1.15}
+.brand .lock b{font-family:var(--medium);font-size:15px;font-weight:600;letter-spacing:-0.01em}
+.brand .lock small{font-size:10.5px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+.head-grid{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,7vw,74px);
+  line-height:.95;letter-spacing:-0.04em}
+h1 em{font-family:var(--italic);font-weight:400;color:var(--accent)}
+.head-sub{margin-top:16px;font-size:clamp(15px,1.5vw,18px);color:var(--text-soft);max-width:52ch}
+.head-meta{text-align:right;flex:0 0 auto}
+.head-meta .period{font-family:var(--medium);font-size:15px;color:var(--text);font-weight:600}
+.head-meta .label{font-size:11px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.pill{display:inline-flex;align-items:center;gap:7px;background:var(--green-soft);color:var(--green-deep);
+  font-family:var(--medium);font-weight:600;font-size:12px;padding:6px 13px;border-radius:999px;margin-top:10px}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--green-deep)}
+
+/* ───── SECTIONS ───── */
+section{padding:clamp(34px,5vw,52px) 0}
+.sec-head{margin-bottom:clamp(22px,3vw,32px)}
+.sec-head h2{font-family:var(--heading);font-weight:700;font-size:clamp(22px,2.6vw,30px);
+  letter-spacing:-0.025em;margin-top:9px;line-height:1.1}
+.sec-head h2 em{font-family:var(--italic);font-weight:400;color:var(--accent)}
+.sec-head p{margin-top:8px;color:var(--muted);font-size:14.5px;max-width:62ch}
+
+/* ───── KPI ───── */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kpi{background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--r);
+  padding:22px 20px 20px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+.kpi.feature{background:var(--bg-dark);color:var(--bg);border-color:transparent}
+.kpi.feature .k-val{color:#fff}
+.kpi.feature .k-label,.kpi.feature .k-sub{color:rgba(233,232,228,.62)}
+.kpi.feature::after{content:'';position:absolute;right:-30px;top:-30px;width:90px;height:90px;border-radius:50%;
+  background:radial-gradient(circle,rgba(238,76,32,.5),transparent 70%)}
+.k-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.k-val{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.4vw,38px);
+  letter-spacing:-0.03em;line-height:1;margin-top:12px}
+.k-val .cur{font-size:.55em;color:var(--muted);margin-right:2px;font-family:var(--medium);font-weight:600}
+.kpi.feature .k-val .cur{color:rgba(233,232,228,.5)}
+.k-sub{font-size:12.5px;color:var(--muted);margin-top:8px}
+.k-sub b{color:var(--accent);font-family:var(--medium);font-weight:600}
+.kpi-row2{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:14px}
+.mini{background:var(--surface-soft);border:1px solid var(--border-soft);border-radius:var(--r-sm);padding:15px 16px}
+.mini .m-label{font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mini .m-val{font-family:var(--heading);font-weight:700;font-size:21px;letter-spacing:-0.02em;margin-top:6px}
+
+/* ───── FUNNEL ───── */
+.funnel-card{background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--r);
+  padding:clamp(22px,3vw,34px);box-shadow:var(--shadow)}
+.funnel{display:flex;flex-direction:column;gap:9px}
+.f-row{display:flex;align-items:center;gap:16px}
+.f-label{flex:0 0 158px;font-family:var(--medium);font-weight:600;font-size:14px;
+  letter-spacing:-0.01em;color:var(--text)}
+.f-bar-wrap{flex:1;min-width:0;background:var(--surface-soft);border-radius:11px}
+.f-bar{height:46px;border-radius:11px;min-width:46px;transition:width .4s}
+.f-side{flex:0 0 112px;display:flex;flex-direction:column;align-items:flex-end;text-align:right}
+.f-side .f-count{font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:-0.03em;line-height:1}
+.f-side .f-pct{font-size:11.5px;color:var(--muted);margin-top:3px}
+.f-foot{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px;padding-top:20px;border-top:1px solid var(--border-soft)}
+.chip{display:inline-flex;align-items:center;gap:9px;border-radius:var(--r-sm);padding:11px 16px;
+  font-size:13px;font-family:var(--medium);font-weight:600;border:1px solid transparent}
+.chip .c-n{font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-0.02em}
+.chip.win{background:var(--green-soft);color:var(--green-deep)}
+.chip.out{background:var(--danger-soft);color:var(--danger)}
+.chip.wait{background:var(--surface-soft);color:var(--muted);border-color:var(--border-soft)}
+.f-note{margin-top:16px;font-size:12.5px;color:var(--muted);line-height:1.5}
+
+/* ───── PUBLICS ───── */
+.pub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pub{background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--r);
+  padding:22px 20px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;position:relative}
+.pub.best{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),var(--shadow)}
+.pub-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.status{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
+.status.on{background:var(--green-soft);color:var(--green-deep)}
+.status.off{background:var(--surface-soft);color:var(--muted)}
+.status .sd{width:6px;height:6px;border-radius:50%;background:currentColor}
+.tag-best{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.pub-name{font-family:var(--medium);font-weight:600;font-size:15px;line-height:1.3;letter-spacing:-0.01em;
+  min-height:40px}
+.pub-name .geo{color:var(--accent)}
+.pub-cpl{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-0.03em;margin:16px 0 2px}
+.pub-cpl .cur{font-size:.5em;color:var(--muted);font-family:var(--medium);font-weight:600;margin-right:2px}
+.pub-cpl-l{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pub-stats{display:flex;gap:18px;margin-top:18px;padding-top:16px;border-top:1px solid var(--border-soft)}
+.pub-stats div{display:flex;flex-direction:column}
+.pub-stats .s-l{font-size:10.5px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.pub-stats .s-v{font-family:var(--medium);font-weight:600;font-size:16px;margin-top:3px}
+
+/* ───── CREATIVE ───── */
+.creative{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;
+  background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--r);
+  padding:clamp(20px,3vw,30px);box-shadow:var(--shadow-sm)}
+.cr-mark{width:84px;height:84px;border-radius:18px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;box-shadow:var(--shadow)}
+.cr-mark svg{width:34px;height:34px;fill:#fff}
+.cr-body h3{font-family:var(--heading);font-weight:700;font-size:22px;letter-spacing:-0.02em}
+.cr-body .cr-type{font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.cr-body p{font-size:13.5px;color:var(--text-soft);margin-top:8px;max-width:56ch}
+
+/* ───── READING ───── */
+.read-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.read{background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--r);
+  padding:24px 22px;box-shadow:var(--shadow-sm)}
+.read.dark{background:var(--bg-dark);color:var(--bg)}
+.read.dark h3,.read.dark li{color:var(--bg)}
+.read.dark .r-ico{background:rgba(238,76,32,.2);color:var(--accent)}
+.read h3{font-family:var(--heading);font-weight:700;font-size:18px;letter-spacing:-0.02em;margin-bottom:16px;
+  display:flex;align-items:center;gap:10px}
+.r-ico{width:30px;height:30px;border-radius:9px;background:var(--accent-soft);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;font-size:15px}
+.read ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.read li{font-size:14px;line-height:1.5;color:var(--text-soft);padding-left:20px;position:relative}
+.read.dark li{color:rgba(233,232,228,.85)}
+.read li::before{content:'';position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:2px;
+  background:var(--accent)}
+.read li b{font-family:var(--medium);font-weight:600;color:var(--text)}
+.read.dark li b{color:#fff}
+
+/* ───── FOOTER ───── */
+footer{padding:clamp(34px,5vw,52px) 0 48px;margin-top:clamp(20px,3vw,36px);
+  border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap}
+footer .f-brand{display:flex;align-items:center;gap:10px;font-family:var(--medium);font-weight:600;font-size:14px}
+footer .f-brand .d{width:9px;height:9px;border-radius:50%;background:var(--accent)}
+footer small{font-size:12px;color:var(--muted)}
+
+@media(max-width:860px){
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .kpi-row2{grid-template-columns:repeat(2,1fr)}
+  .pub-grid{grid-template-columns:1fr}
+  .read-grid{grid-template-columns:1fr}
+  .f-side{flex-basis:78px}
+  .f-label{flex-basis:92px;font-size:12.5px}
+  .f-row{gap:11px}
+  .creative{grid-template-columns:1fr;text-align:center}
+  .cr-mark{margin:0 auto}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <div class="mark"><span></span></div>
+      <div class="lock"><b>Trilha</b><small>Performance Digital</small></div>
+    </div>
+    <div class="head-grid">
+      <div>
+        <span class="eyebrow">Relatório de Campanha</span>
+        <h1>UP <em>Markup</em></h1>
+        <p class="head-sub">Desempenho da campanha de captação de investidores imobiliários no Meta Ads e o estágio de atendimento de cada lead.</p>
+      </div>
+      <div class="head-meta">
+        <div class="label">Período</div>
+        <div class="period">15 mai – 10 jun 2026</div>
+        <div class="pill"><span class="dot"></span>Campanha ativa</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- KPIs -->
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow muted">Visão geral</span>
+      <h2>Os números do <em>período</em></h2>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="k-label">Investimento</div>
+        <div class="k-val"><span class="cur">R$</span>1.512</div>
+        <div class="k-sub">aplicado em mídia no período</div>
+      </div>
+      <div class="kpi feature">
+        <div class="k-label">Leads gerados</div>
+        <div class="k-val">42</div>
+        <div class="k-sub">contatos captados pela campanha</div>
+      </div>
+      <div class="kpi">
+        <div class="k-label">Custo por lead</div>
+        <div class="k-val"><span class="cur">R$</span>36,01</div>
+        <div class="k-sub">melhor público a <b>R$ 29,41</b></div>
+      </div>
+      <div class="kpi">
+        <div class="k-label">Alcance</div>
+        <div class="k-val">10,8<span class="cur" style="font-size:.45em;margin-left:2px">mil</span></div>
+        <div class="k-sub">pessoas únicas impactadas</div>
+      </div>
+    </div>
+    <div class="kpi-row2">
+      <div class="mini"><div class="m-label">Impressões</div><div class="m-val">19.056</div></div>
+      <div class="mini"><div class="m-label">Cliques</div><div class="m-val">192</div></div>
+      <div class="mini"><div class="m-label">CTR</div><div class="m-val">1,01%</div></div>
+      <div class="mini"><div class="m-label">CPM</div><div class="m-val">R$ 79</div></div>
+      <div class="mini"><div class="m-label">Frequência</div><div class="m-val">1,76</div></div>
+    </div>
+  </section>
+
+  <!-- FUNNEL -->
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow muted">Atendimento · Yellow Talks</span>
+      <h2>O que aconteceu com <em>cada lead</em></h2>
+      <p>Dos 42 leads gerados, 33 já estão registrados e distribuídos no funil de atendimento. Veja em que etapa cada um está.</p>
+    </div>
+    <div class="funnel-card">
+      <div class="funnel">
+        <div class="f-row">
+          <div class="f-label">Leads gerados</div>
+          <div class="f-bar-wrap"><div class="f-bar" style="width:100%;background:linear-gradient(90deg,var(--f2),var(--f3))"></div></div>
+          <div class="f-side"><div class="f-count">42</div><div class="f-pct">100%</div></div>
+        </div>
+        <div class="f-row">
+          <div class="f-label">Registrados no CRM</div>
+          <div class="f-bar-wrap"><div class="f-bar" style="width:79%;background:linear-gradient(90deg,var(--f3),var(--f4))"></div></div>
+          <div class="f-side"><div class="f-count">33</div><div class="f-pct">79% dos leads</div></div>
+        </div>
+        <div class="f-row">
+          <div class="f-label">Tentativa de contato</div>
+          <div class="f-bar-wrap"><div class="f-bar" style="width:55%;background:linear-gradient(90deg,var(--f4),var(--f5))"></div></div>
+          <div class="f-side"><div class="f-count">22</div><div class="f-pct">aguardando retorno</div></div>
+        </div>
+        <div class="f-row">
+          <div class="f-label">Em atendimento</div>
+          <div class="f-bar-wrap"><div class="f-bar" style="width:34%;background:linear-gradient(90deg,var(--f5),var(--f6))"></div></div>
+          <div class="f-side"><div class="f-count">8</div><div class="f-pct">conversa ativa</div></div>
+        </div>
+        <div class="f-row">
+          <div class="f-label">Visita</div>
+          <div class="f-bar-wrap"><div class="f-bar" style="width:16%;background:var(--green-deep)"></div></div>
+          <div class="f-side"><div class="f-count">1</div><div class="f-pct">agendada</div></div>
+        </div>
+      </div>
+      <div class="f-foot">
+        <div class="chip win"><span class="c-n">8</span>em atendimento ativo</div>
+        <div class="chip win"><span class="c-n">1</span>visita já no 1º ciclo</div>
+        <div class="chip out"><span class="c-n">2</span>descartados</div>
+        <div class="chip wait"><span class="c-n">9</span>em entrada / sincronização</div>
+      </div>
+      <p class="f-note">Apenas <b>2 descartes</b> em 33 leads tratados (6%) — taxa baixa, indicando boa aderência do público captado ao perfil de investidor. Os 9 leads em "entrada" são contatos do Meta ainda em sincronização com o Yellow Talks.</p>
+    </div>
+  </section>
+
+  <!-- PUBLICS -->
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow muted">Segmentação</span>
+      <h2>Desempenho por <em>público</em></h2>
+      <p>A verba foi concentrada no público de melhor custo. Os dois públicos regionais foram pausados por custo por lead mais alto.</p>
+    </div>
+    <div class="pub-grid">
+      <div class="pub best">
+        <div class="pub-top">
+          <span class="status on"><span class="sd"></span>Ativo</span>
+          <span class="tag-best">★ Melhor custo</span>
+        </div>
+        <div class="pub-name">27+ · <span class="geo">Brasil</span><br>Investimento imobiliário</div>
+        <div class="pub-cpl-l">Custo por lead</div>
+        <div class="pub-cpl"><span class="cur">R$</span>29,41</div>
+        <div class="pub-stats">
+          <div><span class="s-l">Leads</span><span class="s-v">23</span></div>
+          <div><span class="s-l">Investido</span><span class="s-v">R$ 676</span></div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-top"><span class="status off"><span class="sd"></span>Pausado</span></div>
+        <div class="pub-name">27+ · <span class="geo">SP / BH / MG / MT</span><br>Investimento imobiliário</div>
+        <div class="pub-cpl-l">Custo por lead</div>
+        <div class="pub-cpl"><span class="cur">R$</span>40,52</div>
+        <div class="pub-stats">
+          <div><span class="s-l">Leads</span><span class="s-v">14</span></div>
+          <div><span class="s-l">Investido</span><span class="s-v">R$ 567</span></div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-top"><span class="status off"><span class="sd"></span>Pausado</span></div>
+        <div class="pub-name">27+ · <span class="geo">Maceió + Arapiraca</span><br>Investimento imobiliário</div>
+        <div class="pub-cpl-l">Custo por lead</div>
+        <div class="pub-cpl"><span class="cur">R$</span>53,74</div>
+        <div class="pub-stats">
+          <div><span class="s-l">Leads</span><span class="s-v">5</span></div>
+          <div><span class="s-l">Investido</span><span class="s-v">R$ 269</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREATIVE -->
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow muted">Criativo</span>
+      <h2>O anúncio no <em>ar</em></h2>
+    </div>
+    <div class="creative">
+      <div class="cr-mark">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="cr-body">
+        <div class="cr-type">Vídeo</div>
+        <h3>VD01 · UP!</h3>
+        <p>Criativo único responsável por toda a captação do período. Recomendado preparar variações para o próximo ciclo e evitar fadiga de público.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- READING -->
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow muted">Leitura da Trilha</span>
+      <h2>O que os números <em>dizem</em></h2>
+    </div>
+    <div class="read-grid">
+      <div class="read">
+        <h3><span class="r-ico">✓</span>Destaques</h3>
+        <ul>
+          <li><b>CPL de R$ 36</b> está saudável para um produto de investimento imobiliário em fundo de funil.</li>
+          <li>O público <b>Brasil aberto</b> é o melhor da conta a <b>R$ 29,41</b> por lead — segue ativo e tem espaço para escalar.</li>
+          <li>Decisão correta de <b>pausar os dois públicos regionais</b> e concentrar verba no que converte mais barato.</li>
+          <li>Taxa de descarte de apenas <b>6%</b> e já <b>1 visita</b> agendada no primeiro ciclo da campanha.</li>
+        </ul>
+      </div>
+      <div class="read dark">
+        <h3><span class="r-ico">→</span>Próximos passos</h3>
+        <ul>
+          <li><b>Escalar o público Brasil</b>, ampliando o orçamento enquanto o custo se mantém eficiente.</li>
+          <li><b>Produzir novos criativos</b> — só o VD01 está rodando; variações reduzem o risco de fadiga.</li>
+          <li>Acelerar o contato dos <b>22 leads em tentativa</b> para puxá-los ao atendimento ativo.</li>
+          <li>Acompanhar a <b>visita agendada</b> até a proposta e medir a conversão do funil completo.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="f-brand"><span class="d"></span>Trilha Performance Digital</div>
+    <small>NI Negócios · Campanha UP Markup · 15 mai – 10 jun 2026</small>
+  </footer>
+
+</div>
+</body>
+</html>
