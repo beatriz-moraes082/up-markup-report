@@ -147,15 +147,25 @@ section{padding:clamp(34px,5vw,52px) 0}
 .pub-stats .s-v{font-family:var(--medium);font-weight:600;font-size:16px;margin-top:3px}
 
 /* ───── CREATIVE ───── */
-.creative{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;
+.creative{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;
   background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--r);
   padding:clamp(20px,3vw,30px);box-shadow:var(--shadow-sm)}
-.cr-mark{width:84px;height:84px;border-radius:18px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));
-  display:flex;align-items:center;justify-content:center;flex:0 0 auto;box-shadow:var(--shadow)}
-.cr-mark svg{width:34px;height:34px;fill:#fff}
+.cr-media{display:block;width:188px;flex:0 0 auto;border-radius:16px;overflow:hidden;position:relative;
+  aspect-ratio:361/640;background:var(--bg-dark);box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
+.cr-media:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.cr-media img{width:100%;height:100%;object-fit:cover;display:block}
+.cr-media .cr-badge{position:absolute;top:10px;left:10px;display:inline-flex;align-items:center;gap:6px;
+  background:rgba(29,29,27,.72);backdrop-filter:blur(6px);color:#fff;font-family:var(--medium);font-weight:600;
+  font-size:10.5px;letter-spacing:.04em;padding:5px 10px;border-radius:999px}
+.cr-media .cr-badge svg{width:12px;height:12px;fill:#fff}
 .cr-body h3{font-family:var(--heading);font-weight:700;font-size:22px;letter-spacing:-0.02em}
 .cr-body .cr-type{font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
 .cr-body p{font-size:13.5px;color:var(--text-soft);margin-top:8px;max-width:56ch}
+.cr-btn{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:var(--bg-dark);color:var(--bg);
+  font-family:var(--medium);font-weight:600;font-size:13px;padding:11px 18px;border-radius:999px;
+  text-decoration:none;transition:all .2s}
+.cr-btn:hover{background:var(--accent);transform:translateY(-1px)}
+.cr-btn svg{width:15px;height:15px;fill:currentColor}
 
 /* ───── READING ───── */
 .read-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -193,7 +203,7 @@ footer small{font-size:12px;color:var(--muted)}
   .f-label{flex-basis:92px;font-size:12.5px}
   .f-row{gap:11px}
   .creative{grid-template-columns:1fr;text-align:center}
-  .cr-mark{margin:0 auto}
+  .cr-media{margin:0 auto}
 }
 </style>
 </head>
@@ -353,13 +363,17 @@ footer small{font-size:12px;color:var(--muted)}
       <h2>O anúncio no <em>ar</em></h2>
     </div>
     <div class="creative">
-      <div class="cr-mark">
-        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      </div>
+      <a class="cr-media" href="https://www.instagram.com/ninegocios/reel/DYk6lZlM-jv/" target="_blank" rel="noopener" aria-label="Ver anúncio no Instagram">
+        <img src="assets/criativo-up.jpg" alt="Criativo VD01 · UP!, Reel no Instagram"/>
+        <span class="cr-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Reel</span>
+      </a>
       <div class="cr-body">
-        <div class="cr-type">Vídeo</div>
+        <div class="cr-type">Vídeo · Instagram</div>
         <h3>VD01 · UP!</h3>
         <p>Criativo único responsável por toda a captação do período. Recomendado preparar variações para o próximo ciclo e evitar fadiga de público.</p>
+        <a class="cr-btn" href="https://www.instagram.com/ninegocios/reel/DYk6lZlM-jv/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Ver anúncio no Instagram
+        </a>
       </div>
     </div>
   </section>
@@ -375,7 +389,7 @@ footer small{font-size:12px;color:var(--muted)}
         <h3><span class="r-ico">✓</span>Destaques</h3>
         <ul>
           <li><b>CPL de R$ 36</b> está saudável para um produto de investimento imobiliário em fundo de funil.</li>
-          <li>O público <b>Brasil aberto</b> é o melhor da conta a <b>R$ 29,41</b> por lead — segue ativo e tem espaço para escalar.</li>
+          <li>O público <b>Brasil aberto</b> é o melhor da conta a <b>R$ 29,41</b> por lead, segue ativo e tem espaço para escalar.</li>
           <li>Decisão correta de <b>pausar os dois públicos regionais</b> e concentrar verba no que converte mais barato.</li>
           <li>Taxa de descarte de apenas <b>6%</b> e já <b>1 visita</b> agendada no primeiro ciclo da campanha.</li>
         </ul>
@@ -384,7 +398,7 @@ footer small{font-size:12px;color:var(--muted)}
         <h3><span class="r-ico">→</span>Próximos passos</h3>
         <ul>
           <li><b>Escalar o público Brasil</b>, ampliando o orçamento enquanto o custo se mantém eficiente.</li>
-          <li><b>Produzir novos criativos</b> — só o VD01 está rodando; variações reduzem o risco de fadiga.</li>
+          <li><b>Produzir novos criativos</b>, já que só o VD01 está rodando e variações reduzem o risco de fadiga.</li>
           <li>Acelerar o contato dos <b>22 leads em tentativa</b> para puxá-los ao atendimento ativo.</li>
           <li>Acompanhar a <b>visita agendada</b> até a proposta e medir a conversão do funil completo.</li>
         </ul>
