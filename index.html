@@ -99,7 +99,8 @@ section{padding:clamp(34px,5vw,52px) 0}
 .kpi-row2{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:14px}
 .mini{background:var(--surface-soft);border:1px solid var(--border-soft);border-radius:var(--r-sm);padding:15px 16px}
 .mini .m-label{font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.mini .m-val{font-family:var(--heading);font-weight:700;font-size:21px;letter-spacing:-0.02em;margin-top:6px}
+.mini .m-val{font-family:var(--heading);font-weight:700;font-size:21px;letter-spacing:-0.02em;margin-top:5px}
+.mini .m-help{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.35}
 
 /* ───── FUNNEL ───── */
 .funnel-card{background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--r);
@@ -249,18 +250,18 @@ footer small{font-size:12px;color:var(--muted)}
       </div>
     </div>
     <div class="kpi-row2">
-      <div class="mini"><div class="m-label">Impressões</div><div class="m-val">19.056</div></div>
-      <div class="mini"><div class="m-label">Cliques</div><div class="m-val">192</div></div>
-      <div class="mini"><div class="m-label">CTR</div><div class="m-val">1,01%</div></div>
-      <div class="mini"><div class="m-label">CPM</div><div class="m-val">R$ 79</div></div>
-      <div class="mini"><div class="m-label">Frequência</div><div class="m-val">1,76</div></div>
+      <div class="mini"><div class="m-label">Impressões</div><div class="m-val">19.056</div><div class="m-help">vezes que o anúncio apareceu</div></div>
+      <div class="mini"><div class="m-label">Cliques</div><div class="m-val">192</div><div class="m-help">cliques no anúncio</div></div>
+      <div class="mini"><div class="m-label">CTR</div><div class="m-val">1,01%</div><div class="m-help">dos que viram, clicaram</div></div>
+      <div class="mini"><div class="m-label">CPM</div><div class="m-val">R$ 79</div><div class="m-help">custo a cada mil exibições</div></div>
+      <div class="mini"><div class="m-label">Frequência</div><div class="m-val">1,76</div><div class="m-help">vezes que cada pessoa viu</div></div>
     </div>
   </section>
 
   <!-- FUNNEL -->
   <section>
     <div class="sec-head">
-      <span class="eyebrow muted">Atendimento · Yellow Talks</span>
+      <span class="eyebrow muted">Atendimento · Equipe NI</span>
       <h2>O que aconteceu com <em>cada lead</em></h2>
       <p>Dos 42 leads gerados, 33 já estão registrados e distribuídos no funil de atendimento. Veja em que etapa cada um está.</p>
     </div>
@@ -298,7 +299,6 @@ footer small{font-size:12px;color:var(--muted)}
         <div class="chip out"><span class="c-n">2</span>descartados</div>
         <div class="chip wait"><span class="c-n">9</span>em entrada / sincronização</div>
       </div>
-      <p class="f-note">Apenas <b>2 descartes</b> em 33 leads tratados (6%) — taxa baixa, indicando boa aderência do público captado ao perfil de investidor. Os 9 leads em "entrada" são contatos do Meta ainda em sincronização com o Yellow Talks.</p>
     </div>
   </section>
 
